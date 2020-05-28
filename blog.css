@@ -1,0 +1,73 @@
+body {
+    background-color: #F6EFFB;
+}
+.card {
+    margin: 50px;
+}
+a {
+    color: #BE57FE;
+}
+a:hover {
+    color: #DDAAFD;
+    text-decoration: none;
+}
+.writing {
+    margin: 50px auto;
+    width: 70%;
+    text-align: center;
+    border: 1px solid #DDAAFD;
+    border-radius: 10px;
+    padding: 1%;
+}
+@font-face {
+    font-family: 'Daehan';
+    font-style: normal;
+    font-weight: 400;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanR.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanR.woff') format('woff');
+}
+@font-face {
+    font-family: 'Daehan';
+    font-style: normal;
+    font-weight: 700;
+    src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanB.woff') format('woff');
+}
+@font-face { font-family: 'HSBombaram'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/HSBombaram.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+.daehan {
+    font-family: 'Daehan', serif;
+}
+.bombaram {
+    font-family: 'HSBombaram', serif;
+}
+nav {
+    background-color: #DDAAFD;
+    position: sticky;
+    width: 80%;
+    height: 50px;
+    top: 10px;
+    left: 10%;
+    border-radius: 10px;
+    z-index: 500;
+    opacity: 0.8;
+}
+ul {
+    margin: 0 auto;
+}
+ul li {
+    list-style: none;
+    float: left;
+    font-size: 15pt;
+}
+li {
+    padding: 10px;
+}
+.nav-main {
+    margin-right: 30px;
+    font-size: 16pt;
+}
+.nav-a {
+    color: white;
+}
+.nav-a:hover {
+    color: #BE57FE;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Blog</title>
+
+        <link rel="styleshhet" href="blog.css" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        
+        <style>
+            body {
+                background-color: #F6EFFB;
+            }
+            .card {
+                margin: 50px;
+            }
+            a {
+                color: #BE57FE;
+            }
+            a:hover {
+                color: #DDAAFD;
+                text-decoration: none;
+            }
+            .writing {
+                margin: 50px auto;
+                width: 70%;
+                text-align: center;
+                border: 1px solid #DDAAFD;
+                border-radius: 10px;
+                padding: 1%;
+            }
+            @font-face {
+                font-family: 'Daehan';
+                font-style: normal;
+                font-weight: 400;
+                src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanR.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanR.woff') format('woff');
+            }
+            @font-face {
+                font-family: 'Daehan';
+                font-style: normal;
+                font-weight: 700;
+                src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanB.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/yoon/Daehan/DaehanB.woff') format('woff');
+            }
+            @font-face { font-family: 'HSBombaram'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/HSBombaram.woff') format('woff'); font-weight: normal; font-style: normal; }
+        
+            .daehan {
+                font-family: 'Daehan', serif;
+            }
+            .bombaram {
+                font-family: 'HSBombaram', serif;
+            }
+            nav {
+                background-color: #DDAAFD;
+                position: sticky;
+                width: 80%;
+                height: 50px;
+                top: 10px;
+                left: 10%;
+                border-radius: 10px;
+                z-index: 500;
+                opacity: 0.8;
+            }
+            ul {
+                margin: 0 auto;
+            }
+            ul li {
+                list-style: none;
+                float: left;
+                font-size: 15pt;
+            }
+            li {
+                padding: 10px;
+                color: white;
+            }
+            .nav-main {
+                margin-right: 30px;
+                font-size: 16pt;
+            }
+            .nav-a {
+                color: white;
+            }
+            .nav-a:hover {
+                color: #BE57FE;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div>
+                <ul class="daehan">
+                    <li><a class="nav-a nav-main" href="{%url 'home'%}">BLOG</a></li>
+                    <li><a class="nav-a" href="{% url 'home'%}">홈</a></li>
+                    <li><a class="nav-a" href="{% url 'newblog'%}">글쓰기</a></li>
+                    <li><a class="nav-a" href="{%url 'portfolio'%}">Portfolio</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div>
+            <div class="writing daehan">
+                <h2 class="card-title bombaram">{{blog.title}}</h2>
+                <p class="card-text">{{blog.summary}}</p>
+                <a href="{%url 'detail' blog.id%}" class="card-link bombaram">더보기</a>
+                <br>
+                <a href="{%url 'update' blog.id%}" class="bombaram">수정</a>
+                <a href="{%url 'delete' blog.id%}" class="bombaram">삭제</a>
+                <div style="color: #BE57FE; border-color: #DDAAFD; background-color:#EDD6FC">{{blog.pub_date}}</div>
+            </div>
+        </div>
+        <!-- <div class="row daehan" style="margin: 0 auto;">
+            {% for blog in blogs.all %}
+            <div class="col-md-6 text-center">
+                <div class="card w-75" style="border-color: #DDAAFD; margin-left: auto; margin-right: auto;">
+                    <div class="card-body">
+                        <h2 class="card-title bombaram">{{blog.title}}</h2>
+                        <p class="card-text">{{blog.summary}}</p>
+                        <a href="{%url 'detail' blog.id%}" class="card-link bombaram">더보기</a>
+                        <br>
+                        <a href="{%url 'update' blog.id%}" class="bombaram">수정</a>
+                        <a href="{%url 'delete' blog.id%}" class="bombaram">삭제</a>
+                    </div>
+                    <div class="card-footer" style="color: #BE57FE; border-color: #DDAAFD; background-color:#EDD6FC">{{blog.pub_date}}</div>
+                </div>
+            </div>
+            {%endfor%}
+        </div> -->
+
+        <!-- {% for blog in blogs.all%}
+            <h1>{{blog.title}}</h1>
+            <p>{{blog.pub_date}}</p>
+            <p>{{blog.summary}}<a href="{%url 'detail' blog.id%}">...more</a></p>
+            <br><br>
+        {%endfor%} -->
+    </body>
+</html>
